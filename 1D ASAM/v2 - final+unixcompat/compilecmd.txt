@@ -1,0 +1,1 @@
+g++ -o testsam -Wall SAMUtils.cpp Main.cpp -lgcc -lm

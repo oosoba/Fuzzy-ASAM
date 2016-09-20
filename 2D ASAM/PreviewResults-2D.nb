@@ -1,0 +1,179 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[      6312,        170]
+NotebookOptionsPosition[      5918,        153]
+NotebookOutlinePosition[      6296,        169]
+CellTagsIndexPosition[      6253,        166]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{"SetDirectory", "[", 
+  RowBox[{"NotebookDirectory", "[", "]"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"fx", " ", "=", " ", 
+   RowBox[{"Import", "[", "\"\<FxnGen2D.dat\>\"", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Dimensions", "@", "fx"}], "\n", 
+ RowBox[{
+  RowBox[{"orig", "=", 
+   RowBox[{"ListPlot3D", "[", 
+    RowBox[{"fx", ",", " ", 
+     RowBox[{"PlotRange", "\[Rule]", "Full"}]}], "]"}]}], ";"}]}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.4394496997650003`*^9, 3.4394497630775003`*^9}, {
+   3.439667781547*^9, 3.4396677850726*^9}, {3.439668759204*^9, 
+   3.4396687665516*^9}, {3.4396688155044003`*^9, 3.4396688163*^9}, {
+   3.4396703342242002`*^9, 3.4396703899318*^9}, {3.4396708656382*^9, 
+   3.4396708924546003`*^9}, {3.4396732198125*^9, 3.43967322296875*^9}, 
+   3.4396732684375*^9, 3.439873189390625*^9, {3.43993344746875*^9, 
+   3.43993345525*^9}, {3.439947115578125*^9, 3.439947116890625*^9}, {
+   3.440502505515625*^9, 3.440502521578125*^9}, {3.440523062546875*^9, 
+   3.44052310628125*^9}, 3.44054369178125*^9, {3.506040784702375*^9, 
+   3.506040806171125*^9}, 3.50604087112425*^9, 3.5060413579279613`*^9, {
+   3.506395796220703*^9, 3.506395798705078*^9}, {3.54337687165106*^9, 
+   3.543376874246147*^9}, 3.5433770845201907`*^9, {3.5436310540780964`*^9, 
+   3.543631080788954*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"sincepochs", " ", "=", 
+   RowBox[{"Import", "@", 
+    RowBox[{"Last", "[", 
+     RowBox[{"Sort", "[", 
+      RowBox[{
+       RowBox[{"FileNames", "[", "\"\<.\\\\Sinc\\\\*.dat\>\"", "]"}], ",", 
+       " ", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"AbsoluteTime", "@", 
+           RowBox[{"FileDate", "@", "#1"}]}], "<", 
+          RowBox[{"AbsoluteTime", "@", 
+           RowBox[{"FileDate", "@", "#2"}]}]}], ")"}], "&"}]}], " ", "]"}], 
+     "]"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"s", "=", 
+   RowBox[{"ListPlot3D", "[", 
+    RowBox[{"sincepochs", ",", " ", 
+     RowBox[{
+     "PlotLabel", "\[Rule]", " ", 
+      "\"\<Best Approximation using Sinc fits\>\""}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", "Full"}]}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"gepochs", " ", "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+     RowBox[{"Last", "[", 
+      RowBox[{"Sort", "[", 
+       RowBox[{
+        RowBox[{"FileNames", "[", "\"\<.\\\\Gauss\\\\*.dat\>\"", "]"}], ",", 
+        " ", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"AbsoluteTime", "@", 
+            RowBox[{"FileDate", "@", "#1"}]}], "<", 
+           RowBox[{"AbsoluteTime", "@", 
+            RowBox[{"FileDate", "@", "#2"}]}]}], ")"}], "&"}]}], " ", "]"}], 
+      "]"}], ",", "\"\<Table\>\""}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"g", "=", 
+   RowBox[{"ListPlot3D", "[", 
+    RowBox[{"gepochs", ",", " ", 
+     RowBox[{"PlotRange", "\[Rule]", "Full"}], ",", " ", 
+     RowBox[{
+     "PlotLabel", "\[Rule]", " ", 
+      "\"\<Best Approximation using Gaussian fits\>\""}]}], "]"}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"cepochs", " ", "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+     RowBox[{"Last", "[", 
+      RowBox[{"Sort", "[", 
+       RowBox[{
+        RowBox[{"FileNames", "[", "\"\<.\\\\Cauchy\\\\*.dat\>\"", "]"}], ",", 
+        " ", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"AbsoluteTime", "@", 
+            RowBox[{"FileDate", "@", "#1"}]}], "<", 
+           RowBox[{"AbsoluteTime", "@", 
+            RowBox[{"FileDate", "@", "#2"}]}]}], ")"}], "&"}]}], " ", "]"}], 
+      "]"}], ",", "\"\<Table\>\""}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"c", "=", 
+   RowBox[{"ListPlot3D", "[", 
+    RowBox[{"cepochs", ",", " ", 
+     RowBox[{"PlotRange", "\[Rule]", "Full"}], ",", " ", 
+     RowBox[{
+     "PlotLabel", "\[Rule]", " ", 
+      "\"\<Best Approximation using Cauchy fits\>\""}]}], "]"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.4394496997650003`*^9, 3.4394497630775003`*^9}, {
+   3.439667781547*^9, 3.4396677850726*^9}, {3.439668759204*^9, 
+   3.4396687665516*^9}, {3.4396688155044003`*^9, 3.4396688163*^9}, {
+   3.4396703342242002`*^9, 3.4396703899318*^9}, {3.4396708656382*^9, 
+   3.4396708924546003`*^9}, {3.4396732198125*^9, 3.43967322296875*^9}, 
+   3.4396732684375*^9, 3.439873189390625*^9, {3.43993344746875*^9, 
+   3.43993345525*^9}, {3.439947115578125*^9, 3.439947116890625*^9}, {
+   3.440502505515625*^9, 3.440502521578125*^9}, {3.440523062546875*^9, 
+   3.44052310628125*^9}, 3.44054369178125*^9, {3.506040784702375*^9, 
+   3.506040806171125*^9}, 3.50604087112425*^9, 3.5060413579279613`*^9, {
+   3.506395796220703*^9, 3.506395798705078*^9}, {3.54337687165106*^9, 
+   3.543376874246147*^9}, 3.5433770845201907`*^9, {3.5436310540780964`*^9, 
+   3.543631080788954*^9}, {3.543632102482749*^9, 3.5436321133420973`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"GraphicsGrid", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"orig", ",", "s"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"g", ",", "c"}], "}"}]}], "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"ImageSize", "\[Rule]", "Large"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.543376678885603*^9, 3.543376755780178*^9}, {
+   3.5433768185282803`*^9, 3.5433768672779136`*^9}, 3.543376907722268*^9, {
+   3.543377027065266*^9, 3.5433770480269685`*^9}}]
+},
+WindowSize->{942, 966},
+WindowMargins->{{Automatic, 0}, {Automatic, 0}},
+Magnification->0.8999998569488525,
+FrontEndVersion->"8.0 for Microsoft Windows (64-bit) (February 23, 2011)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[545, 20, 1367, 26, 82, "Input",
+ InitializationCell->True],
+Cell[1915, 48, 3491, 89, 154, "Input"],
+Cell[5409, 139, 505, 12, 46, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)
